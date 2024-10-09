@@ -20,7 +20,7 @@ body{
     background-color: #2a2a2a;
     width: 100%;
     height: 75px;
-    border-bottom: 1.5px solid rgb(0, 150, 255);
+    border-bottom: 1.5px solid #87CEEB;
 }
 .logo{
     max-width: 75px;
@@ -36,6 +36,7 @@ body{
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    height: 90%;
 }
 
 .ad{
@@ -50,37 +51,59 @@ body{
     position: absolute !important;
     position: sticky;
     bottom: 0;
-    height: 3vw;
+    height: 50px;
     background-color: #2a2a2a;
-    border-top: 1.5px solid rgb(0, 150, 255);
+    border-top: 1.5px solid #87CEEB;
     width: 100%;
 }
 
 .player{
     width: 100%;
     height: 100%;
+    /* gap: 20px; */
     display: flex;
-    gap: 10px;
     align-items: center;
-
     justify-content: center;
 }
 
-.player input{
-    min-width: 1200px;
-    /* justify-self: center; */
-    /* color: rgb(0, 150, 255); */
+.side_button{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_mid{
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    gap: 5px    ;
+}
+
+.button_mid p{
+    color: #ffffff;
+    width: 30px;
+    text-align: center;
+    padding-bottom: 3px;
+}
+
+.button_mid input[type="range"]{
+    width: 100%;
+    accent-color: #87CEEB
 }
 
 .player button{
     width: 35px;
     height: 35px;
     background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .player button img{
-    width: 100%;
-    height: 100%;
+    width: 70%;
     filter: invert(1);
 }
 
