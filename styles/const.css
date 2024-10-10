@@ -6,10 +6,6 @@
     border: 0;
 }
 
-p{
-    
-}
-
 html{
     width: 100%;
     height: 100%;
@@ -27,4 +23,18 @@ body{
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button:hover p{
+    transition: 0.1s;
+    color: rgb(0, 150, 255);
+    transform: scale(1.1);
+}
+
+button:active p{
+    transform: scale(0.95);
 }
