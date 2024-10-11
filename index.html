@@ -4,46 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MaxVolume</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/const.css">
+    <link rel="stylesheet" href="styles/player.css">
+    <link rel="stylesheet" href="styles/mainpage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <div class="header">
+    <div class="head_back">
         <div class="centered">
-            <button class="logo">
-                <img src="sys_img/Kraken_logo.jpeg" alt="">
-            </button>
+            <div class="header">
+                <button  class="logo">
+                    <img src="sys_img/Kraken_logo.jpeg" alt="">
+                </button>
+                <button class="head_button_left">
+                    <p>Главная</p>
+                </button>                
+                <button class="head_button_left">
+                    <p>Новинки</p>
+                </button>
+                <div class="search">
+                    <input type="text" placeholder="Поиск...">
+                    <img src="sys_img/search.png" alt="">
+                </div>    
+                <button class="head_button_right">
+                    <p>Библиотека</p>
+                </button>
+                <button class="head_button_right profile">
+                    <div class="profile_pic">
+                        <img src="sys_img/Kraken_logo.jpeg" alt="">
+                    </div>
+                    <P>Профиль</P>
+                </button>
+            </div>
         </div>
     </div>
     <div class="centered">
         <div class="ad">
-            <p class = "text">Тут могла бы быть ваша реклама</p>
-            <!-- <a href="https://службапоконтракту.рф/"><img src="sys_img/Z.jpg" alt=""></a> -->
+            <a href="https://службапоконтракту.рф/">
+                <img src="sys_img/svo.jpg" alt="">
+            </a>
         </div>
     </div>
     <div class="inv">
         <div class="player">
-            <button class="player_button">
-                <img src="sys_img/rewind-button.png" alt="">
-            </button>
-            <button class="player_button">
-                <img src="sys_img/pause-button.png" alt="">
-            </button>
-            <button class="player_button">
-                <img src="sys_img/forward-button.png" alt="">
-            </button>
-            <input class="" type="range" min="0" max="">
-            <button class="player_button">
-                <img src="sys_img/repeat.png" alt="">
-            </button>
-            <button class="player_button">
-                <img src="sys_img/shuffle.png" alt="">
-            </button>
-            <button class="player_button">
-                <img src="sys_img/heart.png" alt="">
-            </button>
-            <button class="player_button">
-                <img src="sys_img/comment.png" alt="">
-            </button>
+            <div class="side_button">
+                <button class="player_button">
+                    <img src="sys_img/previous.png" alt="">
+                </button>
+                <button class="player_button">
+                    <img src="sys_img/pause.png" alt="">
+                </button>
+                <button class="player_button">
+                    <img src="sys_img/next.png" alt="">
+                </button>
+            </div>
+            <div class="button_mid">
+                <p class="time">--:--</p>
+                <input type="range" min="0" max="" value="100">
+                <p class="time">--:--</p>
+            </div>
+            <div class="side_button">
+                <button class="player_button">
+                    <img src="sys_img/repeat.png" alt="">
+                </button>
+                <button class="player_button">
+                    <img src="sys_img/shufle.png" alt="">
+                </button>
+                <button class="player_button">
+                    <img src="sys_img/unliked.png" alt="">
+                </button>
+                <button class="player_button">
+                    <img src="sys_img/svo.jpg" alt="">
+                </button>
+            </div>
         </div>
     </div>
 </body>
