@@ -92,3 +92,10 @@
     height: 100%;
     border-radius: 50%;
 }
+
+.auth{
+    position: absolute;
+    width: 200px;
+    /* right: 20%; */
+    background-color: aqua;
+}
