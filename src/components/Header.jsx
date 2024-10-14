@@ -18,7 +18,9 @@ export default function _header() {
 					</button>
 					<div className="search">
 						<input type="text" placeholder="Поиск..."/>
-						<img src={lupa} alt=""/>
+						<button>
+							<img src={lupa} alt=""/>
+						</button>
 					</div>    
 					<button className="head_button_right">
 						<p>Библиотека</p>
