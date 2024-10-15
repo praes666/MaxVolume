@@ -77,6 +77,7 @@
 
 .profile{
     width: 200px;
+    position: relative;
     display: flex;
     gap: 20px;
     border-right: 2px solid rgb(100, 100, 100);
@@ -94,8 +95,29 @@
 }
 
 .auth{
-    position: absolute;
-    width: 200px;
-    /* right: 20%; */
-    background-color: aqua;
+    /* display:  none; */
+    position: fixed;
+    display: flex;
+    overflow: hidden;
+    width: 198px;
+    flex-direction: column;
+    border: 1px solid rgb(0, 150, 255);
+    border-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.auth button{
+    display: flex;
+    height: 40px;
+    gap: 7px;
+    padding-left: 5px;
+    color: #ffffff;
+    background-color: #2f2f2f;
+    align-items: center;
+}
+
+.auth img{
+    height: 70%;
+    color: #ffffff;
 }
