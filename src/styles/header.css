@@ -37,6 +37,7 @@
 }
 
 .search input[type="text"]{
+    color: #ffffff;
     align-self: center;
     width: 90%;
     height: 50%;
@@ -83,8 +84,6 @@
     border-right: 2px solid rgb(100, 100, 100);
 }
 
-.profile:hover .auth{display: flex;}
-
 .profile_pic{
     width: 40px;
     height: 40px;
@@ -97,12 +96,11 @@
 }
 
 .auth{
-    /* display: none; */
+    position: inherit;
     display: flex;
-
-    position: fixed;
     overflow: hidden;
-    width: 198px;
+    width: 200px;
+    height: 160px;
     flex-direction: column;
     border: 1px solid rgb(0, 150, 255);
     border-top: 0;
