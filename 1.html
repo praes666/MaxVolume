@@ -71,36 +71,55 @@
         </div>
     </div>
     <div class="inv">
-        <div class="player">
-            <div class="side_button">
-                <button class="player_button">
-                    <img src="src/img/previous.png" alt="">
-                </button>
-                <button class="player_button">
-                    <img src="src/img/pause.png" alt="">
-                </button>
-                <button class="player_button">
-                    <img src="src/img/next.png" alt="">
-                </button>
-            </div>
-            <div class="button_mid">
-                <p class="time">--:--</p>
-                <input type="range" min="0" max="" value="100">
-                <p class="time">--:--</p>
-            </div>
-            <div class="side_button">
-                <button class="player_button">
-                    <img src="src/img/repeat.png" alt="">
-                </button>
-                <button class="player_button">
-                    <img src="src/img/shufle.png" alt="">
-                </button>
-                <button class="player_button">
-                    <img src="src/img/unliked.png" alt="">
-                </button>
-                <button class="player_button">
-                    <img src="src/img/svo.jpg" alt="">
-                </button>
+        <div class='centered'>
+            <div class="player">
+                <div class="side_button">
+                    <button class="player_button">
+                        <img src={prev} alt=""/>
+                    </button>
+
+                    <!-- {isPlaying ? -->
+                    <button class="player_button">
+                        <img src={play} alt=""/>
+                    </button>
+                    <!-- : -->
+                    <button class="player_button">
+                        <img src={pause} alt=""/>
+                    </button>
+                <!-- } -->
+                    
+                    <button class="player_button">
+                    <img src={next} alt=""/>
+                    </button>
+
+                    <button class="player_button">
+                        <img src={repeat} alt=""/>
+                    </button>
+                    <button class="player_button">
+                        <img src={shuffle} alt=""/>
+                    </button>
+                </div>
+                <div class="button_mid">
+                    <p class="time">--:--</p>
+                    <input type="range" min="0" max="" />
+                    <p class="time">--:--</p>
+                </div>
+                <div class="side_button">
+                    <button class="player_button">
+                        <img src={volume} alt=""/>
+                    </button>
+                    <button class="player_button">
+                        <img src={like} alt=""/>
+                    </button>
+                    <div class="trackinfo">
+                        <img src={logo} alt=""/>
+                        <img src='src/img/Kraken_logo.jpeg' alt=""/>
+                        <div class='ti_text'>
+                            <p class='track_name'>Название трека</p>
+                            <p class='track_author'>Автор</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
