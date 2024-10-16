@@ -14,7 +14,7 @@ const isPlaying = false
 
 
 
-export default function _player(){
+export default function Player(){
     return(
         <div className="inv">
             <div className='centered'>

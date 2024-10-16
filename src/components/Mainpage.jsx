@@ -1,11 +1,11 @@
 import add from '../img/svo.jpg'
 import page_stuf from '../img/bebra.png'
 
-export default function _mainpage(){
+export default function Mainpage(){
     return(
-        <div class="centered">
-        <div class="main">
-            <div class="ad">
+        <div className="centered">
+        <div className="main">
+            <div className="ad">
                 <a href="https://службапоконтракту.рф/">
                     <img src={add} alt=""/>
                 </a>
