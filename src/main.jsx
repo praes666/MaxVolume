@@ -12,7 +12,7 @@ import './styles/mainpage.css'
 createRoot(document.getElementById('root')).render(
     <div className='full'>
         <_header/>
-            <_mainpage />
+        <_mainpage />
         <_player/>
     </div>
 )
