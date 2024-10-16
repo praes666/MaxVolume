@@ -69,7 +69,9 @@ export default function _header() {
 							<input type="text" name="" id="" placeholder="Почта"/>
 							<input type="text" name="" id="" placeholder="Пароль"/>
 							<input type="text" name="" id="" placeholder="Повторите пароль"/>
-							<button onClick={console.log('Нажата кнопка регистрации')}>
+							<button onClick={()=>{
+								console.log('Нажата кнопка регистрации')
+							}}>
 								<p>Зарегестрироваться</p>
 							</button>
 							<button onClick={()=>{ShowReg = false}}>
