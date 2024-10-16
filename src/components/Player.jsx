@@ -8,13 +8,28 @@ import volume from '../img/player/volume.png'
 import like from '../img/player/liked.png'
 // import unlike from '../img/player/unliked.png'
 
+import { useState } from 'react'
+
 import logo from '../img/Kraken_logo.jpeg'
 
-const isPlaying = false
-
-
-
 export default function Player(){
+    const[isPlaying, setPlaying] = useState(false)
+    const[showVolume, setVolume] = useState(false)
+
+    function PlayControl(){
+        if(isPlaying)
+			{setPlaying(false)}
+		if(!isPlaying)
+			{setPlaying(true)}
+    }
+
+    function volymeControl(){
+        if(showVolume)
+			{setVolume(false)}
+		if(!showVolume)
+			{setVolume(true)}
+    }
+
     return(
         <div className="inv">
             <div className='centered'>
@@ -25,11 +40,11 @@ export default function Player(){
                         </button>
 
                         {isPlaying ?
-                        <button className="player_button">
+                        <button className="player_button" onClick={PlayControl}>
                             <img src={play} alt=""/>
                         </button>
                         :
-                        <button className="player_button">
+                        <button className="player_button" onClick={PlayControl}>
                             <img src={pause} alt=""/>
                         </button>
                     }
@@ -51,9 +66,16 @@ export default function Player(){
                         <p className="time">--:--</p>
                     </div>
                     <div className="side_button">
-                        <button className="player_button">
+                        <button className="player_button" onClick={volymeControl}>
                             <img src={volume} alt=""/>
                         </button>
+                        {showVolume ? (
+                            <div className='volume'>
+                                <input type="range" orient="vertical"/>
+                            </div>
+                        ):<div></div>
+                        }
+                        
                         <button className="player_button">
                             <img src={like} alt=""/>
                         </button>
