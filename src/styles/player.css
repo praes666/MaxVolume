@@ -12,15 +12,13 @@
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     
 }
 
 .side_button{
     display: flex;
-    width: 20%;
     align-items: center;
-    justify-content: center;
 }
 
 .button_mid{
@@ -28,18 +26,18 @@
     display: flex;
     gap: 5px;
     
+    justify-content: center;
 }
 
 .button_mid input[type="range"]{
-    width: 100%;
+    width: 90%;
     accent-color: rgb(0, 150, 255)
 }
 
 .button_mid p{
     color: #ffffff;
-    width: 30px;
+    width: 5%;
     text-align: center;
-    padding-bottom: 3px;
 }
 
 .player button{
@@ -49,11 +47,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.player button:hover{
-    transform: scale(1.1);
-    transition: 0.1s;
 }
 
 .player button:active{
@@ -99,4 +92,10 @@
     padding-bottom: 10px;
     bottom: 49px;
     left: 68.6%;
+}
+
+.volume input[type="range"]{
+    writing-mode: vertical-lr;
+    direction: rtl;
+
 }

@@ -8,26 +8,49 @@ import volume from '../img/player/volume.png'
 import like from '../img/player/liked.png'
 // import unlike from '../img/player/unliked.png'
 
-import { useState } from 'react'
+import track from '../track.mp3'
+
+import { useState, useRef }from 'react'
 
 import logo from '../img/Kraken_logo.jpeg'
 
 export default function Player(){
     const[isPlaying, setPlaying] = useState(false)
-    const[showVolume, setVolume] = useState(false)
+    const[currentTime, setTime] = useState(0)
+    const[duration, sutDuration] = useState(0)
 
-    function PlayControl(){
-        if(isPlaying)
-			{setPlaying(false)}
-		if(!isPlaying)
-			{setPlaying(true)}
+    const[showVolume, setVolumeActive] = useState(false)
+    const[currentVolume, setVolume] = useState(0.1)
+
+    const audioRef = useRef(null)
+
+    
+    function DurSliderChange(){
+        
+    }
+    
+    const playerPlay = () => {
+        audioRef.current.play()
+        setPlaying(true)
+    }
+    const playerPause = () => {
+        audioRef.current.pause()
+        setPlaying(false)
+    }
+    
+    const playerControl = () => {
+        audioRef.current.volume = currentVolume
+        if(isPlaying){
+            playerPause()
+        }
+        else{
+            playerPlay()
+        }
     }
 
     function volymeControl(){
-        if(showVolume)
-			{setVolume(false)}
-		if(!showVolume)
-			{setVolume(true)}
+        if(showVolume){setVolumeActive(false)}
+		if(!showVolume){setVolumeActive(true)}
     }
 
     return(
@@ -39,16 +62,10 @@ export default function Player(){
                             <img src={prev} alt=""/>
                         </button>
 
-                        {isPlaying ?
-                        <button className="player_button" onClick={PlayControl}>
-                            <img src={play} alt=""/>
+                        <button className="player_button" onClick={playerControl}>
+                        {isPlaying ? <img src={pause} alt=""/> : <img src={play} alt=""/> }
                         </button>
-                        :
-                        <button className="player_button" onClick={PlayControl}>
-                            <img src={pause} alt=""/>
-                        </button>
-                    }
-                        
+
                         <button className="player_button">
                         <img src={next} alt=""/>
                         </button>
@@ -61,9 +78,14 @@ export default function Player(){
                         </button>
                     </div>
                     <div className="button_mid">
-                        <p className="time">--:--</p>
-                        <input type="range" min="0" max="" />
-                        <p className="time">--:--</p>
+                        <p className="time">{currentTime}</p>
+                        <input
+                        type="range"
+                        value={currentTime}
+                        max={duration}
+                        onChange={DurSliderChange}
+                        />
+                        <p className="time">{duration}</p>
                     </div>
                     <div className="side_button">
                         <button className="player_button" onClick={volymeControl}>
@@ -71,7 +93,7 @@ export default function Player(){
                         </button>
                         {showVolume ? (
                             <div className='volume'>
-                                <input type="range" orient="vertical"/>
+                                <input type="range" defaultValue="50"/>
                             </div>
                         ):<div></div>
                         }
@@ -89,6 +111,7 @@ export default function Player(){
                     </div>
                 </div>
             </div>
+            <audio ref={audioRef} src={track} preload='auto'></audio>
         </div>
     )
 }
