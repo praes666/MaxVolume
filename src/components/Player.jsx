@@ -10,23 +10,28 @@ import like from '../img/player/liked.png'
 
 import track from '../track.mp3'
 
-import { useState, useRef }from 'react'
+import { useState, useRef, useEffect }from 'react'
 
 import logo from '../img/Kraken_logo.jpeg'
 
 export default function Player(){
     const[isPlaying, setPlaying] = useState(false)
-    const[currentTime, setTime] = useState(0)
-    const[duration, sutDuration] = useState(0)
+    const[currentTime, setCurrentTime] = useState(0)
+    const[duration, setDuration] = useState(0)
 
     const[showVolume, setVolumeActive] = useState(false)
     const[currentVolume, setVolume] = useState(0.1)
 
     const audioRef = useRef(null)
 
-    
-    function DurSliderChange(){
-        
+    const timeUpdateF = () => {
+        setCurrentTime(audioRef.current.currentTime)
+        setDuration(audioRef.current.duration)
+    }
+
+    const DurSliderChange = (e) => {
+        audioRef.current.currentTime = e.target.value
+        setCurrentTime(e.target.value)
     }
     
     const playerPlay = () => {
@@ -52,6 +57,15 @@ export default function Player(){
         if(showVolume){setVolumeActive(false)}
 		if(!showVolume){setVolumeActive(true)}
     }
+
+    useEffect(() => {
+        audioRef.current.addEventListener("timeupdate", timeUpdateF)
+
+        return() => {
+            audioRef.current.removeEventListener("timeupdate", timeUpdateF)
+        }
+    }, []
+)
 
     return(
         <div className="inv">
@@ -84,6 +98,8 @@ export default function Player(){
                         value={currentTime}
                         max={duration}
                         onChange={DurSliderChange}
+                        onMouseDown={DurSliderChange}
+                        onMouseUp={playerPlay}
                         />
                         <p className="time">{duration}</p>
                     </div>
