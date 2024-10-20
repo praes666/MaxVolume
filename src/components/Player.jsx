@@ -20,7 +20,7 @@ export default function Player(){
     const[duration, setDuration] = useState(0)
 
     const[showVolume, setVolumeActive] = useState(false)
-    const[currentVolume, setVolume] = useState(0.1)
+    const[currentVolume, setVolume] = useState(1)
 
     const audioRef = useRef(null)
 
@@ -44,28 +44,28 @@ export default function Player(){
     }
     
     const playerControl = () => {
-        audioRef.current.volume = currentVolume
-        if(isPlaying){
-            playerPause()
-        }
-        else{
-            playerPlay()
-        }
+        audioRef.current.volume = currentVolume * 0.1
+        if(isPlaying){playerPause()}
+        else{playerPlay()}
     }
 
-    function volymeControl(){
+    function volumeControl(){
         if(showVolume){setVolumeActive(false)}
-		if(!showVolume){setVolumeActive(true)}
+		else{setVolumeActive(true)}
+    }
+
+    function timeFormating(time){
+        const minutes = Math.floor(time/60)
+        const seconds = Math.floor(time%60).toString().padStart(2, '0')
+        return `${minutes}:${seconds}`
     }
 
     useEffect(() => {
-        audioRef.current.addEventListener("timeupdate", timeUpdateF)
 
+        audioRef.current.addEventListener("timeupdate", timeUpdateF)
         return() => {
             audioRef.current.removeEventListener("timeupdate", timeUpdateF)
-        }
-    }, []
-)
+        }})
 
     return(
         <div className="inv">
@@ -92,19 +92,17 @@ export default function Player(){
                         </button>
                     </div>
                     <div className="button_mid">
-                        <p className="time">{currentTime}</p>
+                        <p className="time">{timeFormating(currentTime)}</p>
                         <input
                         type="range"
                         value={currentTime}
                         max={duration}
                         onChange={DurSliderChange}
-                        onMouseDown={DurSliderChange}
-                        onMouseUp={playerPlay}
                         />
-                        <p className="time">{duration}</p>
+                        <p className="time">{timeFormating(duration)}</p>
                     </div>
                     <div className="side_button">
-                        <button className="player_button" onClick={volymeControl}>
+                        <button className="player_button" onClick={volumeControl}>
                             <img src={volume} alt=""/>
                         </button>
                         {showVolume ? (
