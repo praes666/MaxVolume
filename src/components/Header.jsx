@@ -4,17 +4,19 @@ import empty_profile from '../img/empty_profile.png'
 
 import { useState } from 'react'
 
+import Auth from './auth'
+
 export default function Header() {
 	const isAuth = false
 	const [isVisible, setVisible] = useState(false)
-	const [isLogin, setLogin] = useState(true)
+	// const [isLogin, setLogin] = useState(true)
 
-	function loginSwitch(){
-		if(isLogin)
-			{setLogin(false)}
-		if(!isLogin)
-			{setLogin(true)}
-	}
+	// function loginSwitch(){
+	// 	if(isLogin)
+	// 		{setLogin(false)}
+	// 	if(!isLogin)
+	// 		{setLogin(true)}
+	// }
 
 	function profile_click(){
 		if(isVisible)
@@ -74,34 +76,12 @@ export default function Header() {
 							<p>Подписки</p>
 						</button>
 					</div>
-				):isLogin ? (
-					<div className='reg'>
-						<input type="text" name="" id="" placeholder="Логин"/>
-						<input type="text" name="" id="" placeholder="Пароль"/>
-						<button className='reg_button'>
-							<p>Войти</p>
-						</button>
-						<button className='dop_auth' onClick={loginSwitch}>
-							<p>Зарегестрироваться</p>
-						</button>
-					</div>
 				):(
-				<div className='reg'>
-					<input type="text" name="" id="" placeholder="Логин"/>
-					<input type="text" name="" id="" placeholder="Почта"/>
-					<input type="text" name="" id="" placeholder="Пароль"/>
-					<input type="text" name="" id="" placeholder="Повторите пароль"/>
-					<button className='reg_button'>
-						<p>Зарегестрироваться</p>
-					</button>
-					<button className='dop_auth' onClick={loginSwitch}>
-						<p>Войти</p>
-					</button>
-				</div>
-			)):(
-				<div></div>
-			)}
-			
+				<Auth />
+			)
+		):
+		<div></div>
+		}	
 		</div>
     )
 }
