@@ -79,9 +79,10 @@
 
 .volume{
     position: absolute;
-    height: 100px;
+    height: 200px;
     width: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: #2f2f2f;
     border: 1px solid rgb(0, 150, 255);
@@ -94,8 +95,13 @@
     left: 66.7vw;
 }
 
+.volume p{
+    align-self: center;
+    color: #ffffff;
+}
+
 .volume input[type="range"]{
     writing-mode: vertical-lr;
     direction: rtl;
-
+    height: 100%;
 }

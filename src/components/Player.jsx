@@ -8,7 +8,7 @@ import volume from '../img/player/volume.png'
 import like from '../img/player/liked.png'
 // import unlike from '../img/player/unliked.png'
 
-import track from '../track.mp3'
+import track from '../test_track/track.mp3'
 
 import { useState, useRef, useEffect }from 'react'
 
@@ -20,21 +20,27 @@ export default function Player(){
     const[duration, setDuration] = useState(0)
 
     const[showVolume, setVolumeActive] = useState(false)
-    const[currentVolume, setVolume] = useState(1)
+    const[currentVolume, setVolume] = useState(0.5)
 
     const audioRef = useRef(null)
+
+    const VolSliderChange = (e) => {
+        audioRef.current.volume = (Math.pow(e.target.value, 1.5)/5).toFixed(2)
+        setVolume(e.target.value)
+    }
 
     const timeUpdateF = () => {
         setCurrentTime(audioRef.current.currentTime)
         setDuration(audioRef.current.duration)
     }
-
+    
     const DurSliderChange = (e) => {
         audioRef.current.currentTime = e.target.value
         setCurrentTime(e.target.value)
     }
     
     const playerPlay = () => {
+        audioRef.current.volume = (Math.pow(0.5, 1.5)/5).toFixed(2)
         audioRef.current.play()
         setPlaying(true)
     }
@@ -44,7 +50,6 @@ export default function Player(){
     }
     
     const playerControl = () => {
-        audioRef.current.volume = currentVolume * 0.1
         if(isPlaying){playerPause()}
         else{playerPlay()}
     }
@@ -61,7 +66,6 @@ export default function Player(){
     }
 
     useEffect(() => {
-
         audioRef.current.addEventListener("timeupdate", timeUpdateF)
         return() => {
             audioRef.current.removeEventListener("timeupdate", timeUpdateF)
@@ -107,7 +111,13 @@ export default function Player(){
                         </button>
                         {showVolume ? (
                             <div className='volume'>
-                                <input type="range" defaultValue="50"/>
+                                <p>{currentVolume}</p>
+                                <input type="range"
+                                defaultValue={currentVolume}
+                                max="1"
+                                step="0.01"
+                                onChange={VolSliderChange}
+                                />
                             </div>
                         ):<div></div>
                         }
